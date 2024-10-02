@@ -1,6 +1,8 @@
 FROM node:20
 
-WORKDIR /usr/src/app
+RUN mkdir -p /app
+
+WORKDIR /app
 
 COPY package*.json pnpm-lock.yaml* ./
 

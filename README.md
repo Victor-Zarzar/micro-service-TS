@@ -14,9 +14,10 @@
 
 - TypeScript
 - React
+- React ContextAPI (Login, Logout, State Management)
 - Html
 - TailWind CSS
-- Next.js
+- Next.js 14
 - Material UI
 - Pnpm
 - Eslint
@@ -34,11 +35,15 @@
 
 Project Clone
 
-     git clone https://github.com/Victor-Zarzar/micro-service-TS
+    git clone https://github.com/Victor-Zarzar/micro-service-TS
+     
+Enter in directory:
+
+    cd micro-service-TS  
 
 With docker and docker-compose installed, the following command moves up the stack:
 
-     make up
+    make up
 
 Starting the project:
 

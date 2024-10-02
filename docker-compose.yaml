@@ -9,10 +9,11 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./db.sqlite3:/app/db.sqlite3
+      - ./Backend:/app
+      - ./db.sqlite3:/app/db.sqlite3 
     environment:
       - DATABASE_URL=sqlite:///db.sqlite3
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
   
   frontend:
     build:
@@ -21,6 +22,8 @@ services:
     container_name: frontend
     ports:
       - "3000:3000"
+    volumes:
+      - ./Frontend:/app 
     environment:
       - NODE_ENV=development
     command: pnpm run dev
