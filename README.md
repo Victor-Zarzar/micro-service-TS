@@ -51,13 +51,3 @@ Clear the stack:
 For the stack:
    
     make down
-
-<p align="center">
-  <img src="https://github.com/Victor-Zarzar/new-portfolio/assets/114430780/32944179-afea-42f0-a1eb-9bb0c6b9462a" width="1000" height="500" alt="Screenshot 2024-01-20 at 01 04 13">
-</p>
-
-<p align="center">
-  <img src="https://github.com/Victor-Zarzar/new-portfolio/assets/114430780/a8962c1a-33d4-48e1-8b1e-ceb2cd0ffcdf" alt="Screenshot 2024-02-22 13-19-06" width="270px" height="450px"> 
-  <img src="https://github.com/Victor-Zarzar/new-portfolio/assets/114430780/9a47f745-882c-4a9b-9c71-9edaf09dad9d" alt="Screenshot 2024-02-22 13-20-00" width="270px" height="450px">
-  <img src="https://github.com/Victor-Zarzar/new-portfolio/assets/114430780/ad35ea18-03f9-40ff-9eb7-20527e0ea18e" alt="Screenshot 2024-02-22 13-20-00" width="270px" height="450px">
-</p>
