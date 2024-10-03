@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 interface AuthContextType {
     isAuthenticated: boolean;
     login: (email: string, password: string) => void;
+    register: (email: string, password: string, confirmPasword: string) => Promise<void>;
     logout: () => void;
 }
 
@@ -18,13 +19,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     };
 
+    const register = async (email: string, password: string, confirmPassword: string) => {
+        return new Promise<void>((resolve, reject) => {
+            if (password !== confirmPassword) {
+                reject('As senhas não correspondem.');
+            } else {
+                setTimeout(() => {
+                    setIsAuthenticated(true);
+                    resolve();
+                }, 1000);
+            }
+        });
+    };
+
     const logout = () => setIsAuthenticated(false);
 
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={{ isAuthenticated, login, register, logout }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

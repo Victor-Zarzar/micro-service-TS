@@ -38,7 +38,7 @@ const LoginPage: React.FC = () => {
             login(email, password);
             router.push('/dashboard');
         } catch (err) {
-            setError('Erro ao fazer login. Verifique suas credenciais.');
+            setError(String(err));
         } finally {
             setLoading(false);
         }
