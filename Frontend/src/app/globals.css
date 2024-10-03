@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply h-full m-0 p-0 dark:bg-stone-900;
+  @apply h-full m-0 p-0;
 }
 #root {
   @apply flex flex-col min-h-full;
