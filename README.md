@@ -45,9 +45,13 @@ With docker and docker-compose installed, the following command moves up the sta
 
     make up
 
-Starting the project:
+Starting the project Frontend:
 
     localhost:3000
+
+Starting the project Backend:
+
+    localhost:8000/docs    
 
 Clear the stack:
 
