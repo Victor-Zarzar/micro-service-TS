@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../components/AuthContext/AuthContext';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { FormControl, FormLabel, FormHelperText } from '@mui/material';
+import { FormControl, FormLabel, FormHelperText, Container } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -49,7 +49,7 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-4 md:p-10 bg-white rounded-lg shadow-md mt-40">
+        <Container fixed className="max-w-md mx-auto p-4 md:p-10 bg-white rounded-lg shadow-md mt-40">
             <FormControl fullWidth>
                 <FormLabel htmlFor="email" className="dark:text-black text-center text-lg mb-4">
                     Login
@@ -89,7 +89,7 @@ const LoginPage: React.FC = () => {
                     Não tem uma conta? Registre-se
                 </Button>
             </FormControl>
-        </div>
+        </Container>
     );
 };
 
