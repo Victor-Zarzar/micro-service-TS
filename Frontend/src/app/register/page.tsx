@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { FormControl, FormLabel, FormHelperText, Container } from '@mui/material';
+import { FormControl, FormLabel, FormHelperText, Container, Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useAuth } from '../components/AuthContext/AuthContext';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const RegisterPage: React.FC = () => {
     const router = useRouter();
@@ -58,10 +59,12 @@ const RegisterPage: React.FC = () => {
     return (
         <Container fixed className="max-w-md mx-auto p-4 md:p-10 bg-white rounded-lg shadow-md mt-40">
             <FormControl fullWidth>
-                <FormLabel htmlFor="email" className="dark:text-black text-center text-lg mb-4">
-                    Registrar
-                </FormLabel>
-
+                <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
+                    <PersonAddIcon sx={{ mr: 1 }} className='dark:text-black' />
+                    <FormLabel htmlFor="register" className="dark:text-black text-lg">
+                        Registar
+                    </FormLabel>
+                </Box>
                 <TextField
                     id="email"
                     label="Email"
