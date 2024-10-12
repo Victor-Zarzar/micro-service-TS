@@ -1,0 +1,30 @@
+{
+    "AppBar": {
+        "dashboard": "Painel",
+        "profile": "Perfil",
+        "account": "Conta",
+        "logout": "Sair"
+    },
+    "LoginPage": {
+        "title": "Login",
+        "email": "E-mail",
+        "password": "Senha",
+        "toenter": "Entrar",
+        "register": "Não tem uma conta? Registre-se",
+        "invalidemail": "E-mail inválido",
+        "passwordisrequired": "A senha é obrigatória",
+        "requiredfields": "E-mail e senha são obrigatórios."
+    },
+    "RegisterPage": {
+        "title": "Registrar",
+        "email": "Email",
+        "password": "Senha",
+        "confirmpassword": "Confirmar Senha",
+        "register": "Registrar",
+        "login": "Já tem uma conta? Fazer login",
+        "invalidemail": "E-mail inválido",
+        "passwordisrequired": "A senha é obrigatória",
+        "requiredfields": "Todos os campos são obrigatórios.",
+        "passwordnotmatch": "As senhas não correspondem"
+    }
+}

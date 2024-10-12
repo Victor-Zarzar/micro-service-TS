@@ -1,0 +1,30 @@
+{
+    "AppBar": {
+        "dashboard": "Panel",
+        "profile": "Perfil",
+        "account": "Cuenta",
+        "logout": "Salir"
+    },
+    "LoginPage": {
+        "title": "Iniciar",
+        "email": "Correo",
+        "password": "Contraseña",
+        "toenter": "Entrar",
+        "register": "¿No tienes una cuenta? Registro",
+        "invalidemail": "Correo electrónico no válido",
+        "passwordisrequired": "La contraseña es obligatoria",
+        "requiredfields": "Se requiere correo electrónico y contraseña."
+    },
+    "RegisterPage": {
+        "title": "Registro",
+        "email": "Correo",
+        "password": "Contraseña",
+        "confirmpassword": "Confirmar Contraseña",
+        "register": "Registro",
+        "login": "¿Ya tienes una cuenta? Acceso",
+        "invalidemail": "Correo electrónico no válido",
+        "passwordisrequired": "La contraseña es obligatoria",
+        "requiredfields": "Todos los campos son obligatorios.",
+        "passwordnotmatch": "Las contraseñas no coinciden"
+    }
+}

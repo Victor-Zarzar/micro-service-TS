@@ -1,0 +1,31 @@
+{
+    "AppBar": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "account": "Profile",
+        "logout": "Logout"
+    },
+    "LoginPage": {
+        "title": "Login",
+        "email": "Email",
+        "password": "Password",
+        "toenter": "To enter",
+        "register": "Don't have an account? Register",
+        "invalidemail": "Invalid Email",
+        "passwordisrequired": "Password is mandatory",
+        "requiredfields": "Email and password are required."
+     
+    },
+    "RegisterPage": {
+        "title": "Register",
+        "email": "Email",
+        "password": "Password",
+        "confirmpassword": "Confirm Password",
+        "register": "Register",
+        "login": "Already have an account? Login",
+        "invalidemail": "Invalid Email",
+        "passwordisrequired": "Password is mandatory",
+        "requiredfields": "All fields are mandatory.",
+        "passwordnotmatch": "Passwords do not match"
+    }
+}
