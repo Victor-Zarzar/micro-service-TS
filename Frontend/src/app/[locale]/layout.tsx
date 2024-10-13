@@ -15,9 +15,12 @@ export const metadata: Metadata = {
 
 export default async function LocaleLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
     const messages = await getMessages();
-    
+
     return (
         <html lang={locale}>
+            <head>
+                <link rel="icon" href="/favicon.ico" />
+            </head>
             <body className={JetBrains.className}>
                 <AuthProvider>
                     <NextIntlClientProvider messages={messages}>

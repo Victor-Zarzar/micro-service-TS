@@ -9,10 +9,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 function Copyright() {
     const { systemTheme, theme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
+    const t = useTranslations('Footer');
 
     return (
         <Typography
@@ -24,7 +26,7 @@ function Copyright() {
         >
             {'© '}
             <Link color="inherit" href="https://yourwebsite.com/">
-                Cost of Living in Brazil
+                {t('title')}
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -35,6 +37,7 @@ function Copyright() {
 export default function Footer() {
     const { systemTheme, theme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
+    const t = useTranslations('Footer');
 
     return (
         <Box
@@ -51,7 +54,7 @@ export default function Footer() {
                 <Grid container spacing={4}>
                     <Grid size={{ xs: 12, md: 4 }}>
                         <Typography variant="h6" gutterBottom sx={{ color: currentTheme === 'dark' ? 'white' : 'black' }}>
-                            About
+                            {t('about')}
                         </Typography>
                         <Typography
                             variant="body2"
@@ -59,35 +62,34 @@ export default function Footer() {
                                 color: currentTheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
                             }}
                         >
-                            The Brazil Cost of Living Dashboard offers a comprehensive view into the costs of essential items in different Brazilian
-                            cities.
+                            {t('p')}
                         </Typography>
                     </Grid>
                     <Grid size={{ xs: 12, md: 4 }}>
                         <Typography variant="h6" gutterBottom>
-                            Useful Links
+                            {t('links')}
                         </Typography>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li>
                                 <Link href="#" variant="body2">
-                                    Privacy Policy
+                                    {t('privacy')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#" variant="body2">
-                                    Terms of Service
+                                    {t('terms')}
                                 </Link>
                             </li>
                             <li>
                                 <Link href="#" variant="body2">
-                                    Contact
+                                    {t('contact')}
                                 </Link>
                             </li>
                         </ul>
                     </Grid>
                     <Grid size={{ xs: 12, md: 4 }}>
                         <Typography variant="h6" gutterBottom>
-                            Follow us
+                            {t('follow')}
                         </Typography>
                         <Box>
                             <IconButton href="https://github.com/your-profile" color="inherit">

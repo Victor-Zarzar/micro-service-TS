@@ -26,5 +26,15 @@
         "passwordisrequired": "A senha é obrigatória",
         "requiredfields": "Todos os campos são obrigatórios.",
         "passwordnotmatch": "As senhas não correspondem"
+    },
+    "Footer": {
+        "title": "Custo de Vida no Brasil",
+        "about": "Sobre",
+        "p": "O Painel do Custo de Vida no Brasil oferece uma visão abrangente dos custos de itens essenciais em diferentes cidades brasileiras.",
+        "links": "Links úteis",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Serviço",
+        "contact": "Contato",
+        "follow": "Siga-nos"
     }
 }

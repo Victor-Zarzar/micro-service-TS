@@ -14,7 +14,6 @@
         "invalidemail": "Invalid Email",
         "passwordisrequired": "Password is mandatory",
         "requiredfields": "Email and password are required."
-     
     },
     "RegisterPage": {
         "title": "Register",
@@ -27,5 +26,15 @@
         "passwordisrequired": "Password is mandatory",
         "requiredfields": "All fields are mandatory.",
         "passwordnotmatch": "Passwords do not match"
+    },
+    "Footer": {
+        "title": "Cost of Living in Brazil",
+        "about": "About",
+        "p": "The Brazil Cost of Living Dashboard offers a comprehensive view into the costs of essential items in different Brazilian cities.",
+        "links": "Useful Links",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact",
+        "follow": "Follow us"
     }
 }

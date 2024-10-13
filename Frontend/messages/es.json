@@ -26,5 +26,15 @@
         "passwordisrequired": "La contraseña es obligatoria",
         "requiredfields": "Todos los campos son obligatorios.",
         "passwordnotmatch": "Las contraseñas no coinciden"
+    },
+    "Footer": {
+        "title": "Costo de vida en Brasil",
+        "about": "Acerca de",
+        "p": "El Panel de Costo de Vida de Brasil ofrece una visión integral de los costos de artículos esenciales en diferentes ciudades brasileñas.",
+        "links": "Enlaces útiles",
+        "privacy": "Política de privacidad",
+        "terms": "Términos de servicio",
+        "contact": "Contacto",
+        "follow": "Síguenos"
     }
 }
