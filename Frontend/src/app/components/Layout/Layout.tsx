@@ -1,11 +1,16 @@
 'use client';
 import React from 'react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { darkTheme, lightTheme } from '../Theme/Theme';
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
     return (
-        <NextThemesProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider theme={prefersDarkMode ? darkTheme : lightTheme}>
+            <CssBaseline />
             {children}
-        </NextThemesProvider>
+        </ThemeProvider>
     );
 }

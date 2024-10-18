@@ -8,6 +8,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useAuth } from '../../components/AuthContext/AuthContext';
 import { useTranslations } from 'next-intl';
+import { useTheme } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
 
 const LoginPage: React.FC = () => {
     const { login } = useAuth();
@@ -17,6 +19,7 @@ const LoginPage: React.FC = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const t = useTranslations('LoginPage');
+    const theme = useTheme();
 
     const validateEmail = (email: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -53,11 +56,17 @@ const LoginPage: React.FC = () => {
 
     return (
         <>
-            <Container fixed className="max-w-md mx-auto p-4 md:p-10 bg-white rounded-lg shadow-md mt-40">
+            <Container
+                fixed
+                className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
+                sx={{
+                    backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
+                }}
+            >
                 <FormControl fullWidth>
                     <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
-                        <LockOpenIcon sx={{ mr: 1 }} className="dark:text-black" />
-                        <FormLabel htmlFor="login" className="dark:text-black text-lg">
+                        <LockOpenIcon sx={{ mr: 1, color: theme.palette.text.primary }} />
+                        <FormLabel htmlFor="login" sx={{ color: theme.palette.text.primary, fontSize: '1.25rem' }}>
                             {t('title')}
                         </FormLabel>
                     </Box>
@@ -89,10 +98,18 @@ const LoginPage: React.FC = () => {
                     />
                     {error && <FormHelperText error>{error}</FormHelperText>}
 
-                    <Button variant="contained" color="primary" onClick={handleLogin} disabled={loading} fullWidth style={{ marginTop: '16px' }}>
+                    <Button variant="contained" color="secondary" onClick={handleLogin} disabled={loading} fullWidth style={{ marginTop: '16px' }}>
                         {loading ? <CircularProgress size={24} /> : t('toenter')}
                     </Button>
-                    <Button variant="text" color="primary" onClick={handleRegisterRedirect} fullWidth style={{ marginTop: '8px' }}>
+                    <Button
+                        variant="text"
+                        onClick={handleRegisterRedirect}
+                        fullWidth
+                        style={{
+                            marginTop: '8px',
+                            color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,
+                        }}
+                    >
                         {t('register')}
                     </Button>
                 </FormControl>

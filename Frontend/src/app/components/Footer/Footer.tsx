@@ -8,12 +8,12 @@ import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@mui/material/styles';
 import { useTranslations } from 'next-intl';
+import { grey } from '@mui/material/colors';
 
 function Copyright() {
-    const { systemTheme, theme } = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+    const theme = useTheme();
     const t = useTranslations('Footer');
 
     return (
@@ -21,7 +21,7 @@ function Copyright() {
             variant="body2"
             align="center"
             sx={{
-                color: currentTheme === 'dark' ? 'white' : 'black',
+                color: theme.palette.text.primary,
             }}
         >
             {'© '}
@@ -35,8 +35,7 @@ function Copyright() {
 }
 
 export default function Footer() {
-    const { systemTheme, theme } = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+    const theme = useTheme();
     const t = useTranslations('Footer');
 
     return (
@@ -46,20 +45,20 @@ export default function Footer() {
                 py: 3,
                 px: 2,
                 mt: 'auto',
-                backgroundColor: currentTheme === 'dark' ? '#0f172a' : '#e2e8f0',
-                color: currentTheme === 'dark' ? 'white' : 'black',
+                backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
+                color: theme.palette.text.primary,
             }}
         >
             <Container maxWidth="lg">
                 <Grid container spacing={4}>
                     <Grid size={{ xs: 12, md: 4 }}>
-                        <Typography variant="h6" gutterBottom sx={{ color: currentTheme === 'dark' ? 'white' : 'black' }}>
+                        <Typography variant="h6" gutterBottom>
                             {t('about')}
                         </Typography>
                         <Typography
                             variant="body2"
                             sx={{
-                                color: currentTheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
+                                color: theme.palette.text.secondary,
                             }}
                         >
                             {t('p')}

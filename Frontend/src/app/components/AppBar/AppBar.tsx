@@ -1,209 +1,183 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+import React, { useState } from 'react';
+import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import MuiDrawer from '@mui/material/Drawer';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List';
+import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Link from 'next/link';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import { useTheme } from 'next-themes';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { Switch } from '@mui/material';
+import { useTranslations } from 'next-intl';
 
-const pages = ['Home', 'Costs', 'About'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const drawerWidth = 240;
 
-function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-    const { systemTheme, theme, setTheme } = useTheme();
-    const currentTheme = theme === 'system' ? systemTheme : theme;
+const openedMixin = (theme: Theme): CSSObject => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+    }),
+    overflowX: 'hidden',
+});
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
+const closedMixin = (theme: Theme): CSSObject => ({
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    width: `calc(${theme.spacing(7)} + 1px)`,
+    [theme.breakpoints.up('sm')]: {
+        width: `calc(${theme.spacing(8)} + 1px)`,
+    },
+});
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+const DrawerHeader = styled('div')(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(0, 1),
+    ...theme.mixins.toolbar,
+}));
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
-    return (
-        <AppBar
-            position="static"
-            sx={{
-                backgroundColor: currentTheme === 'dark' ? 'rgba(30, 41, 59, 1)' : 'rgba(156, 163, 175, 1)',
-                color: currentTheme === 'dark' ? 'white' : 'black',
-            }}
-        >
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        Dashboard
-                    </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <DashboardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="#"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        {pages.map((page) => (
-                           <Button
-                           key={page}
-                           onClick={handleCloseNavMenu}
-                           sx={{
-                               my: 2,
-                               color: currentTheme === 'dark' ? 'white' : 'black',
-                               display: 'block',
-                               textAlign: 'center', 
-                           }}
-                       >
-                           {page}
-                       </Button>
-                   ))}
-                        {currentTheme === 'dark' ? (
-                            <IconButton onClick={() => setTheme('light')} sx={{ ml: 2 }} color="inherit">
-                                <Brightness4Icon />
-                            </IconButton>
-                        ) : (
-                            <IconButton onClick={() => setTheme('dark')} sx={{ ml: 2 }} color="inherit">
-                                <DarkModeIcon />
-                            </IconButton>
-                        )}
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip
-                            title="Open settings"
-                            sx={{
-                                backgroundColor: currentTheme === 'dark' ? 'rgba(30, 41, 59, 1)' : 'rgba(255, 255, 255, 1)',
-                                color: currentTheme === 'dark' ? 'white' : 'black',
-                            }}
-                        >
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Avatar" src="avatar.png" />
-                            </IconButton>
-                        </Tooltip>
-
-                        <Menu
-                            sx={{
-                                mt: '45px',
-                                '& .MuiMenu-paper': {
-                                    backgroundColor: currentTheme === 'dark' ? 'rgba(30, 41, 59, 1)' : 'rgba(255, 255, 255, 1)',
-                                    color: currentTheme === 'dark' ? 'white' : 'black',
-                                },
-                            }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={handleCloseUserMenu}
-                                    sx={{
-                                        backgroundColor: currentTheme === 'dark' ? 'rgba(30, 41, 59, 1)' : 'rgba(255, 255, 255, 1)',
-                                        color: currentTheme === 'dark' ? 'white' : 'black',
-                                        '&:hover': {
-                                            backgroundColor: currentTheme === 'dark' ? 'rgba(55, 65, 81, 1)' : 'rgba(229, 231, 235, 1)',
-                                        },
-                                    }}
-                                >
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
+interface AppBarProps extends MuiAppBarProps {
+    open?: boolean;
 }
 
-export default ResponsiveAppBar;
+const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== 'open',
+})<AppBarProps>(({ theme }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
+    variants: [
+        {
+            props: ({ open }) => open,
+            style: {
+                marginLeft: drawerWidth,
+                width: `calc(100% - ${drawerWidth}px)`,
+                transition: theme.transitions.create(['width', 'margin'], {
+                    easing: theme.transitions.easing.sharp,
+                    duration: theme.transitions.duration.enteringScreen,
+                }),
+            },
+        },
+    ],
+}));
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    variants: [
+        {
+            props: ({ open }) => open,
+            style: {
+                ...openedMixin(theme),
+                '& .MuiDrawer-paper': openedMixin(theme),
+            },
+        },
+        {
+            props: ({ open }) => !open,
+            style: {
+                ...closedMixin(theme),
+                '& .MuiDrawer-paper': closedMixin(theme),
+            },
+        },
+    ],
+}));
+
+export default function MiniDrawer() {
+    const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
+    const [darkMode, setDarkMode] = useState(false);
+
+    const t = useTranslations('AppBar');
+
+    const handleDrawerOpen = () => {
+        setOpen(true);
+    };
+
+    const handleDrawerClose = () => {
+        setOpen(false);
+    };
+
+    const toggleDarkMode = () => setDarkMode(!darkMode);
+
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <CssBaseline />
+            <AppBar position="fixed" open={open}>
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        sx={[
+                            {
+                                marginRight: 5,
+                            },
+                            open && { display: 'none' },
+                        ]}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" noWrap component="div">
+                        Dashboard
+                    </Typography>
+                    <Switch checked={darkMode} onChange={toggleDarkMode} />
+                </Toolbar>
+            </AppBar>
+            <Drawer variant="permanent" open={open}>
+                <DrawerHeader>
+                    <IconButton onClick={handleDrawerClose}>{theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}</IconButton>
+                </DrawerHeader>
+                <Divider />
+                <List>
+                    {[
+                        { text: 'Dashboard', icon: <DashboardIcon />, path: 'dashboard' },
+                        { text: 'Costs', icon: <AttachMoneyIcon />, path: 'costs' },
+                        { text: 'Admin', icon: <AdminPanelSettingsIcon />, path: 'admin' },
+                        { text: 'Logout', icon: <LogoutIcon />, path: 'logout' },
+                    ].map((item) => (
+                        <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+                            <Link href={item.path} passHref>
+                                <ListItemButton
+                                    sx={[{ minHeight: 48, px: 2.5 }, open ? { justifyContent: 'initial' } : { justifyContent: 'center' }]}
+                                >
+                                    <ListItemIcon sx={[{ minWidth: 0, justifyContent: 'center' }, open ? { mr: 3 } : { mr: 'auto' }]}>
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.text} sx={[open ? { opacity: 1 } : { opacity: 0 }]} />
+                                </ListItemButton>
+                            </Link>
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+            </Drawer>
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <DrawerHeader />
+            </Box>
+        </Box>
+    );
+}
