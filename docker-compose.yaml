@@ -30,7 +30,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./Frontend:/app 
+      - ./Frontend:/app
+      - /app/node_modules 
     environment:
       - NODE_ENV=development
     command: pnpm run dev
