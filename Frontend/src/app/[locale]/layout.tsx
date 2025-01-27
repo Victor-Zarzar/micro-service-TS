@@ -6,8 +6,8 @@ import LayoutProvider from '../components/Layout/Layout';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import NotFound404 from './[...rest]/page';
-import type { Locale } from '@/app/types/main';
 import { routing } from '../../i18n/routing';
+import { Locale } from '../types/main';
 
 const JetBrains = JetBrains_Mono({ subsets: ['latin'] });
 

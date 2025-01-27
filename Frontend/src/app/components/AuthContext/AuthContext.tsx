@@ -13,13 +13,13 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const login = (email: string, password: string) => {
+    function login(email: string, password: string) {
         if (email && password) {
             setIsAuthenticated(true);
         }
-    };
+    }
 
-    const register = async (email: string, password: string, confirmPassword: string) => {
+    async function register(email: string, password: string, confirmPassword: string) {
         return new Promise<void>((resolve, reject) => {
             if (password !== confirmPassword) {
                 reject('As senhas não correspondem.');
@@ -30,9 +30,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 }, 1000);
             }
         });
-    };
+    }
 
-    const logout = () => setIsAuthenticated(false);
+    function logout() {
+        return setIsAuthenticated(false);
+    }
 
     return <AuthContext.Provider value={{ isAuthenticated, login, register, logout }}>{children}</AuthContext.Provider>;
 };

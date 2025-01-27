@@ -22,12 +22,12 @@ const RegisterPage: React.FC = () => {
     const t = useTranslations('RegisterPage');
     const theme = useTheme();
 
-    const validateEmail = (email: string) => {
+    function validateEmail(email: string) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
-    };
+    }
 
-    const handleRegister = async () => {
+    async function handleRegister() {
         setError('');
 
         if (!email || !password || !confirmPassword) {
@@ -55,11 +55,11 @@ const RegisterPage: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }
 
-    const handleReturnLogin = () => {
+    function handleReturnLogin() {
         router.push('/login');
-    };
+    }
 
     return (
         <Container fixed className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40" sx={{
