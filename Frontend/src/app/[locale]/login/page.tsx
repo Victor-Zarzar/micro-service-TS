@@ -6,13 +6,12 @@ import { FormControl, FormLabel, FormHelperText, Container, Box } from '@mui/mat
 import { useRouter } from 'next/navigation';
 import CircularProgress from '@mui/material/CircularProgress';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { useAuth } from '../../components/AuthContext/AuthContext';
+import { loginService } from '../../../services/UserService';
 import { useTranslations } from 'next-intl';
 import { useTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
-const LoginPage: React.FC = () => {
-    const { login } = useAuth();
+function LoginPage() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,25 +30,23 @@ const LoginPage: React.FC = () => {
             setError(t('requiredfields'));
             return;
         }
-
+    
         if (!validateEmail(email)) {
             setError(t('invalidemail'));
             return;
         }
-
         setLoading(true);
         setError('');
-
         try {
-            login(email, password);
+            await loginService(email, password);
             router.push('/dashboard');
         } catch (err) {
-            setError(String(err));
+            setError('Erro ao fazer login');
         } finally {
             setLoading(false);
         }
     }
-
+    
     function handleRegisterRedirect() {
         router.push('/register');
     }
@@ -81,8 +78,7 @@ const LoginPage: React.FC = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         error={!!error}
                         helperText={error && !validateEmail(email) ? t('invalidemail') : ''}
-                        autoComplete="email"
-                    />
+                        autoComplete="email" />
                     <TextField
                         id="password"
                         label={t('password')}
@@ -94,8 +90,7 @@ const LoginPage: React.FC = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         error={!!error}
                         helperText={error && password.length === 0 ? t('passwordisrequired') : ''}
-                        autoComplete="password"
-                    />
+                        autoComplete="password" />
                     {error && <FormHelperText error>{error}</FormHelperText>}
 
                     <Button variant="contained" color="secondary" onClick={handleLogin} disabled={loading} fullWidth style={{ marginTop: '16px' }}>
@@ -116,6 +111,6 @@ const LoginPage: React.FC = () => {
             </Container>
         </>
     );
-};
+}
 
 export default LoginPage;

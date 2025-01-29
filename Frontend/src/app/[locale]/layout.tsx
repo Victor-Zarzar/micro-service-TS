@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import { AuthProvider } from '../components/AuthContext/AuthContext';
+import { AuthProvider } from '../contexts/AuthContext';
 import LayoutProvider from '../components/Layout/Layout';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';

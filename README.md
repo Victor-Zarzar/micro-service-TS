@@ -17,7 +17,7 @@
 - React ContextAPI (Login, Logout, State Management)
 - Html
 - TailWind CSS
-- Next.js 14
+- Next.js 15
 - Material UI
 - Pnpm
 - Eslint
@@ -28,6 +28,9 @@
 - Python (Backend)
 - FastApi 
 - SQLite (DB)
+- Pydantic
+- Uvicorn
+- Pytest
   
 <br />
 
@@ -39,7 +42,47 @@ Project Clone
      
 Enter in directory:
 
-    cd micro-service-TS  
+    cd micro-service-TS 
+
+Enter in directory:
+
+    cd Frontend
+
+Create .env in project root directory (Frontend):
+
+     API_FRONT_HOST="http://localhost:3000"
+
+Enter in directory:
+
+    cd Backend
+
+And create settings.toml in root directory (Backend):
+
+     name = "micro-service"
+     #[database]
+     #host = "example"
+     #db = "example"
+     #user = "example"
+     #pass = ""
+
+     [database]
+     host = "example"
+     db = "example"
+     user = "example"
+     pass = "example"
+     
+     [security]
+     jwt_secret_key = "example..."
+     api_admin_pass = "example..."
+
+     [api]
+     api_allow_origins = "*"
+
+
+Enter in directory:
+
+    cd micro-service-TS      
+
 
 With docker and docker-compose installed, the following command moves up the stack:
 

@@ -154,9 +154,9 @@ export default function MiniDrawer() {
                 <Divider />
                 <List>
                     {[
-                        { text: 'Dashboard', icon: <DashboardIcon />, path: 'dashboard' },
-                        { text: 'Costs', icon: <AttachMoneyIcon />, path: 'costs' },
-                        { text: 'Admin', icon: <AdminPanelSettingsIcon />, path: 'admin' },
+                        { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
+                        { text: 'Costs', icon: <AttachMoneyIcon />, path: '/dashboard/costs' },
+                        { text: 'Admin', icon: <AdminPanelSettingsIcon />, path: '/dashboard/admin' },
                         { text: 'Logout', icon: <LogoutIcon />, path: 'logout' },
                     ].map((item) => (
                         <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
