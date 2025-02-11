@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
-import './globals.css';
-import { AuthProvider } from '../contexts/AuthContext';
-import LayoutProvider from '../components/Layout/Layout';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import NotFound404 from './[...rest]/page';
+import { JetBrains_Mono } from 'next/font/google';
 import { routing } from '../../i18n/routing';
-import { Locale } from '../types/main';
+import LayoutProvider from '../components/Layout/Layout';
+import { AuthProvider } from '../contexts/AuthContext';
+import type { Locale } from '../types/main';
+import NotFound404 from './[...rest]/page';
+import './globals.css';
 
 const JetBrains = JetBrains_Mono({ subsets: ['latin'] });
 

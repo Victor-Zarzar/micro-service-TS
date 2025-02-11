@@ -1,15 +1,15 @@
 'use client';
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { FormControl, FormLabel, FormHelperText, Container, Box } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import CircularProgress from '@mui/material/CircularProgress';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { loginService } from '../../../services/UserService';
-import { useTranslations } from 'next-intl';
-import { useTheme } from '@mui/material/styles';
+import { Box, Container, FormControl, FormHelperText, FormLabel } from '@mui/material';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { grey } from '@mui/material/colors';
+import { useTheme } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { loginService } from '../../../services/UserService';
 
 function LoginPage() {
     const router = useRouter();
@@ -30,7 +30,7 @@ function LoginPage() {
             setError(t('requiredfields'));
             return;
         }
-    
+
         if (!validateEmail(email)) {
             setError(t('invalidemail'));
             return;
@@ -46,7 +46,7 @@ function LoginPage() {
             setLoading(false);
         }
     }
-    
+
     function handleRegisterRedirect() {
         router.push('/register');
     }
@@ -78,7 +78,8 @@ function LoginPage() {
                         onChange={(e) => setEmail(e.target.value)}
                         error={!!error}
                         helperText={error && !validateEmail(email) ? t('invalidemail') : ''}
-                        autoComplete="email" />
+                        autoComplete="email"
+                    />
                     <TextField
                         id="password"
                         label={t('password')}
@@ -90,7 +91,8 @@ function LoginPage() {
                         onChange={(e) => setPassword(e.target.value)}
                         error={!!error}
                         helperText={error && password.length === 0 ? t('passwordisrequired') : ''}
-                        autoComplete="password" />
+                        autoComplete="password"
+                    />
                     {error && <FormHelperText error>{error}</FormHelperText>}
 
                     <Button variant="contained" color="secondary" onClick={handleLogin} disabled={loading} fullWidth style={{ marginTop: '16px' }}>

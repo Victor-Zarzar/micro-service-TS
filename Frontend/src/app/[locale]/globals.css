@@ -1,12 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 html,
 body {
-  @apply h-full m-0 p-0;
+    @apply h-full m-0 p-0;
 }
 #root {
-  @apply flex flex-col min-h-full;
+    @apply flex flex-col min-h-full;
 }
 .content {
-  @apply grow;
+    @apply grow;
 }

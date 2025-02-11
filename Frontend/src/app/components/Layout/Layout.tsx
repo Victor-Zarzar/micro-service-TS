@@ -1,7 +1,7 @@
 'use client';
-import React from 'react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import React from 'react';
 import { darkTheme, lightTheme } from '../Theme/Theme';
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {

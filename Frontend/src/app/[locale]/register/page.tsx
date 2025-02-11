@@ -1,19 +1,18 @@
 'use client';
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { FormControl, FormLabel, FormHelperText, Container, Box } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import CircularProgress from '@mui/material/CircularProgress';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { useAuth } from '../../components/AuthContext/AuthContext';
-import { useTranslations } from 'next-intl';
-import { useTheme } from '@mui/material/styles';
+import { Box, Container, FormControl, FormHelperText, FormLabel } from '@mui/material';
+import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { grey } from '@mui/material/colors';
+import { useTheme } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { registerService } from '../../../services/UserService';
 
 const RegisterPage: React.FC = () => {
     const router = useRouter();
-    const { register } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -48,7 +47,7 @@ const RegisterPage: React.FC = () => {
         setLoading(true);
 
         try {
-            await register(email, password, confirmPassword);
+            await registerService(email, password, confirmPassword);
             router.push('/login');
         } catch (err) {
             setError(String(err));
@@ -62,12 +61,16 @@ const RegisterPage: React.FC = () => {
     }
 
     return (
-        <Container fixed className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40" sx={{
-            backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
-        }}>
+        <Container
+            fixed
+            className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
+            sx={{
+                backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
+            }}
+        >
             <FormControl fullWidth>
                 <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
-                    <PersonAddIcon sx={{ mr: 1 }}  />
+                    <PersonAddIcon sx={{ mr: 1 }} />
                     <FormLabel htmlFor="register" sx={{ color: theme.palette.text.primary, fontSize: '1.25rem' }}>
                         {t('title')}
                     </FormLabel>
@@ -119,10 +122,15 @@ const RegisterPage: React.FC = () => {
                     {loading ? <CircularProgress size={24} /> : t('register')}
                 </Button>
 
-                <Button variant="text" onClick={handleReturnLogin} fullWidth  style={{
-                            marginTop: '8px',
-                            color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,
-                        }}>
+                <Button
+                    variant="text"
+                    onClick={handleReturnLogin}
+                    fullWidth
+                    style={{
+                        marginTop: '8px',
+                        color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,
+                    }}
+                >
                     {t('login')}
                 </Button>
             </FormControl>

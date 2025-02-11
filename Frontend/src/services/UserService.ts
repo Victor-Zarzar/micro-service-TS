@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_FRONT_HOST || 'http://localhost:8000',
     headers: {
@@ -14,8 +13,8 @@ export async function loginService(email: string, password: string): Promise<str
     return access_token;
 }
 
-export async function registerService(email: string, password: string): Promise<void> {
-    await api.post('/auth/register', { email, password });
+export async function registerService(email: string, password: string, confirmPassword: string): Promise<void> {
+    await api.post('/auth/register', { email, password, confirmPassword });
 }
 
 export function logoutService(): void {

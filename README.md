@@ -20,7 +20,7 @@
 - Next.js 15
 - Material UI
 - Pnpm
-- Eslint
+- Eslint 9
 - Docker
 - Docker-Compose
 - Dark Mode - Next Themes
@@ -103,3 +103,11 @@ Clear the stack:
 For the stack:
    
     make down
+
+To run Eslint and check for possible errors in the code:
+
+    cd Frontend
+
+Now type the following command in the terminal:
+
+    pnpm run lint

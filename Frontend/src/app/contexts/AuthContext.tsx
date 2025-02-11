@@ -29,7 +29,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             if (password !== confirmPassword) {
                 throw new Error('As senhas não correspondem.');
             }
-            await UserService.registerService(email, password);
+            await UserService.registerService(email, password, confirmPassword);
             setIsAuthenticated(true);
         } catch (error) {
             console.error('Erro de registro:', error);
@@ -41,11 +41,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setIsAuthenticated(false);
     }
 
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, login, register, logout }}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={{ isAuthenticated, login, register, logout }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

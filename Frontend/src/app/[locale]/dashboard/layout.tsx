@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import ResponsiveAppBar from '../../components/AppBar/AppBar';
 import Footer from '../../components/Footer/Footer';
 import { useAuth } from '../../contexts/AuthContext';
-import CircularProgress from '@mui/material/CircularProgress';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     const { isAuthenticated } = useAuth();
@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     if (isLoading) {
         return (
             <div className="flex justify-center items-center min-h-screen">
-                <CircularProgress /> 
+                <CircularProgress />
             </div>
         );
     }
@@ -30,9 +30,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     return (
         <div className="dashboard-layout">
             <ResponsiveAppBar />
-            <main className="flex min-h-screen flex-col items-center justify-between">
-                {children}
-            </main>
+            <main className="flex min-h-screen flex-col items-center justify-between">{children}</main>
             <Footer />
         </div>
     );
