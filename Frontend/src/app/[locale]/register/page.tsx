@@ -8,10 +8,10 @@ import { useTheme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { registerService } from '../../../services/UserService';
 
-const RegisterPage: React.FC = () => {
+function RegisterPage() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -136,6 +136,6 @@ const RegisterPage: React.FC = () => {
             </FormControl>
         </Container>
     );
-};
+}
 
 export default RegisterPage;
