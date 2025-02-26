@@ -10,6 +10,7 @@
         "email": "Email",
         "password": "Password",
         "toenter": "To enter",
+        "forgot-password": "Forgot Password",
         "register": "Don't have an account? Register",
         "invalidemail": "Invalid Email",
         "passwordisrequired": "Password is mandatory",
@@ -26,6 +27,15 @@
         "passwordisrequired": "Password is mandatory",
         "requiredfields": "All fields are mandatory.",
         "passwordnotmatch": "Passwords do not match"
+    },
+    "Forgot-Password": {
+        "title": "Reset Password",
+        "email": "Email",
+        "emailsent": "Email sent",
+        "send": "Send",
+        "backtologin": "Back to login",
+        "invalidemail": "Invalid Email",
+        "requiredfields": "Email are required."
     },
     "Footer": {
         "title": "Cost of Living in Brazil",

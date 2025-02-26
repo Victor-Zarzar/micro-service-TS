@@ -1,4 +1,5 @@
 'use client';
+
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { Box, Container, FormControl, FormHelperText, FormLabel } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -62,8 +63,9 @@ function RegisterPage() {
 
     return (
         <Container
+            maxWidth="xs"
             fixed
-            className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
+            className="mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
             sx={{
                 backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
             }}
@@ -79,7 +81,7 @@ function RegisterPage() {
                     id="email"
                     label={t('email')}
                     variant="outlined"
-                    fullWidth
+                    fullWidth={true}
                     margin="normal"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -92,7 +94,7 @@ function RegisterPage() {
                     id="password"
                     label={t('password')}
                     variant="outlined"
-                    fullWidth
+                    fullWidth={true}
                     margin="normal"
                     type="password"
                     value={password}
@@ -106,7 +108,7 @@ function RegisterPage() {
                     id="confirm-password"
                     label={t('confirmpassword')}
                     variant="outlined"
-                    fullWidth
+                    fullWidth={true}
                     margin="normal"
                     type="password"
                     value={confirmPassword}
@@ -118,14 +120,27 @@ function RegisterPage() {
 
                 {error && <FormHelperText error>{error}</FormHelperText>}
 
-                <Button variant="contained" color="secondary" onClick={handleRegister} disabled={loading} fullWidth style={{ marginTop: '16px' }}>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleRegister}
+                    disabled={loading}
+                    fullWidth={true}
+                    sx={{
+                        textTransform: 'none',
+                    }}
+                    style={{ marginTop: '16px' }}
+                >
                     {loading ? <CircularProgress size={24} /> : t('register')}
                 </Button>
 
                 <Button
                     variant="text"
                     onClick={handleReturnLogin}
-                    fullWidth
+                    fullWidth={true}
+                    sx={{
+                        textTransform: 'none',
+                    }}
                     style={{
                         marginTop: '8px',
                         color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,

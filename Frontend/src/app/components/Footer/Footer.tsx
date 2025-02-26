@@ -2,7 +2,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Box from '@mui/material/Box';
-import { grey } from '@mui/material/colors';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
 import IconButton from '@mui/material/IconButton';
@@ -44,7 +43,6 @@ export default function Footer() {
                 py: 3,
                 px: 2,
                 mt: 'auto',
-                backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
                 color: theme.palette.text.primary,
             }}
         >

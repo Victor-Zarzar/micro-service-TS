@@ -1,4 +1,5 @@
 'use client';
+
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { Box, Container, FormControl, FormHelperText, FormLabel } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -51,16 +52,21 @@ function LoginPage() {
         router.push('/register');
     }
 
+    function handleForgotPasswordRedirect() {
+        router.push('/forgot-password');
+    }
+
     return (
         <>
             <Container
+                maxWidth="xs"
                 fixed
-                className="max-w-md mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
+                className="mx-auto p-4 md:p-10 rounded-lg shadow-md mt-40"
                 sx={{
                     backgroundColor: theme.palette.mode === 'dark' ? grey[800] : theme.palette.background.default,
                 }}
             >
-                <FormControl fullWidth>
+                <FormControl fullWidth={true}>
                     <Box display="flex" alignItems="center" justifyContent="center" mb={2}>
                         <LockOpenIcon sx={{ mr: 1, color: theme.palette.text.primary }} />
                         <FormLabel htmlFor="login" sx={{ color: theme.palette.text.primary, fontSize: '1.25rem' }}>
@@ -72,7 +78,7 @@ function LoginPage() {
                         id="email"
                         label={t('email')}
                         variant="outlined"
-                        fullWidth
+                        fullWidth={true}
                         margin="normal"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -84,7 +90,7 @@ function LoginPage() {
                         id="password"
                         label={t('password')}
                         variant="outlined"
-                        fullWidth
+                        fullWidth={true}
                         margin="normal"
                         type="password"
                         value={password}
@@ -95,13 +101,40 @@ function LoginPage() {
                     />
                     {error && <FormHelperText error>{error}</FormHelperText>}
 
-                    <Button variant="contained" color="secondary" onClick={handleLogin} disabled={loading} fullWidth style={{ marginTop: '16px' }}>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={handleLogin}
+                        disabled={loading}
+                        fullWidth={true}
+                        sx={{
+                            textTransform: 'none',
+                        }}
+                        style={{ marginTop: '16px' }}
+                    >
                         {loading ? <CircularProgress size={24} /> : t('toenter')}
                     </Button>
+
+                    <Button
+                        variant="text"
+                        onClick={handleForgotPasswordRedirect}
+                        fullWidth={true}
+                        sx={{ textTransform: 'none' }}
+                        style={{
+                            marginTop: '8px',
+                            color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,
+                        }}
+                    >
+                        {t('forgot-password')}
+                    </Button>
+
                     <Button
                         variant="text"
                         onClick={handleRegisterRedirect}
-                        fullWidth
+                        fullWidth={true}
+                        sx={{
+                            textTransform: 'none',
+                        }}
                         style={{
                             marginTop: '8px',
                             color: theme.palette.mode === 'dark' ? theme.palette.common.white : theme.palette.primary.main,

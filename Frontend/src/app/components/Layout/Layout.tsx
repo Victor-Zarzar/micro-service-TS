@@ -1,4 +1,5 @@
 'use client';
+
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React from 'react';

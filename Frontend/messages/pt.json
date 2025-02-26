@@ -10,6 +10,7 @@
         "email": "E-mail",
         "password": "Senha",
         "toenter": "Entrar",
+        "forgot-password": "Esqueci a senha",
         "register": "Não tem uma conta? Registre-se",
         "invalidemail": "E-mail inválido",
         "passwordisrequired": "A senha é obrigatória",
@@ -26,6 +27,15 @@
         "passwordisrequired": "A senha é obrigatória",
         "requiredfields": "Todos os campos são obrigatórios.",
         "passwordnotmatch": "As senhas não correspondem"
+    },
+    "Forgot-Password": {
+        "title": "Redefinir senha",
+        "email": "Email",
+        "emailsent": "Email enviado",
+        "send": "Enviar",
+        "backtologin": "Voltar ao login",
+        "invalidemail": "Email inválido",
+        "requiredfields": "Email é obrigatório."
     },
     "Footer": {
         "title": "Custo de Vida no Brasil",

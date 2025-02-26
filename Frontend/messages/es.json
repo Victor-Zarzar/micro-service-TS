@@ -10,6 +10,7 @@
         "email": "Correo",
         "password": "Contraseña",
         "toenter": "Entrar",
+        "forgot-password": "Olvidé mi contraseña",
         "register": "¿No tienes una cuenta? Registro",
         "invalidemail": "Correo electrónico no válido",
         "passwordisrequired": "La contraseña es obligatoria",
@@ -26,6 +27,15 @@
         "passwordisrequired": "La contraseña es obligatoria",
         "requiredfields": "Todos los campos son obligatorios.",
         "passwordnotmatch": "Las contraseñas no coinciden"
+    },
+    "Forgot-Password": {
+        "title": "Restablecer contraseña",
+        "email": "Correo electrónico",
+        "emailsent": "Correo electrónico enviado",
+        "send": "Enviar",
+        "backtologin": "Volver al inicio de sesión",
+        "invalidemail": "Correo electrónico no válido",
+        "requiredfields": "El correo electrónico es obligatorio."
     },
     "Footer": {
         "title": "Costo de vida en Brasil",

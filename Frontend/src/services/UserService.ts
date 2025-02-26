@@ -17,6 +17,10 @@ export async function registerService(email: string, password: string, confirmPa
     await api.post('/auth/register', { email, password, confirmPassword });
 }
 
+export async function resetPasswordService(email: string): Promise<void> {
+    await api.patch('/forgot-password-user', { email });
+}
+
 export function logoutService(): void {
     localStorage.removeItem('token');
 }
