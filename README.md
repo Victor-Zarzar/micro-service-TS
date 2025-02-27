@@ -12,26 +12,25 @@
 <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Docker.svg" width="48" title="Docker">  <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Python-Dark.svg" width="48" title="Python"> <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/FastAPI.svg" width="48" title="FastAPI">
 </p>
 
-- TypeScript
-- React
-- React ContextAPI (Login, Logout, State Management)
-- Html
-- TailWind CSS
-- Next.js 15
-- Material UI
-- Pnpm
-- Eslint 9
-- Docker
-- Docker-Compose
-- Dark Mode - Next Themes
-- Next Intl Translate EN/PT-BR/ES
-- Python (Backend)
-- FastApi 
-- SQLite (DB)
-- Pydantic
-- Uvicorn
-- Pytest
-  
+-   TypeScript
+-   React
+-   React ContextAPI (Login, Logout, State Management)
+-   Html
+-   TailWind CSS V4
+-   Next.js 15
+-   Material UI V6
+-   Pnpm
+-   Eslint 9
+-   Docker
+-   Docker-Compose
+-   Next Intl Translate EN/PT-BR/ES
+-   Python (Backend)
+-   FastApi
+-   SQLite (DB)
+-   Pydantic
+-   Uvicorn
+-   Pytest
+
 <br />
 
 ⚙️ How to install:
@@ -39,10 +38,10 @@
 Project Clone
 
     git clone https://github.com/Victor-Zarzar/micro-service-TS
-     
+
 Enter in directory:
 
-    cd micro-service-TS 
+    cd micro-service-TS
 
 Enter in directory:
 
@@ -59,30 +58,25 @@ Enter in directory:
 And create settings.toml in root directory (Backend):
 
      name = "micro-service"
-     #[database]
-     #host = "example"
-     #db = "example"
-     #user = "example"
-     #pass = ""
 
      [database]
-     host = "example"
-     db = "example"
-     user = "example"
-     pass = "example"
-     
+     url = ""
+     host = ""
+     db = ""
+     user = ""
+     pass = ""
+
      [security]
      jwt_secret_key = "example..."
+     jwt_refresh_secret_key = "example..."
      api_admin_pass = "example..."
 
      [api]
      api_allow_origins = "*"
 
-
 Enter in directory:
 
-    cd micro-service-TS      
-
+    cd micro-service-TS
 
 With docker and docker-compose installed, the following command moves up the stack:
 
@@ -94,14 +88,14 @@ Starting the project Frontend:
 
 Starting the project Backend:
 
-    localhost:8000/docs    
+    localhost:8000/docs
 
 Clear the stack:
 
     make clean
 
 For the stack:
-   
+
     make down
 
 To run Eslint and check for possible errors in the code:
@@ -111,3 +105,33 @@ To run Eslint and check for possible errors in the code:
 Now type the following command in the terminal:
 
     pnpm run lint
+
+Enter the Backend directory to run python script:
+
+    cd Backend
+
+To access the example container logs:
+
+    cd micro-service-TS
+
+Now type in the terminal:
+
+    docker logs backend
+
+To run the script with dummy costs and data:
+
+```bash
+  virtualenv .env
+  source .env/bin/activate
+  pip install -r requirements.txt
+  python3 -m src.populate.populate_db
+```
+
+To remove the virtual environment and recreate it again:
+
+```bash
+  rm -rf .env
+  python3 -m venv .env
+  source .env/bin/activate
+  pip install -r requirements.txt
+```

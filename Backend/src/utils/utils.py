@@ -100,6 +100,6 @@ async def init_changepass_process(user: User) -> None:
 def is_email_valid(email: str) -> bool:
     if re.fullmatch(EMAIL_REGEX, email):
         domain = email.split("@")[1]
-        if domain == 'xlabs.com.br':
+        if domain == 'gmail.com':
             return True
     return False

@@ -32,7 +32,7 @@ const darkTheme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: grey[800],
+            main: grey[700],
         },
         secondary: {
             main: grey[700],

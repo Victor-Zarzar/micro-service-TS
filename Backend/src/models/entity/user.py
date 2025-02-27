@@ -24,6 +24,8 @@ class User(SQLModel, table=True):
                                          link_model=UserScopes)
     is_active: bool = Field(default=False)
 
+    tokens: List["Token"] = Relationship(back_populates="user")
+
 class Scope(SQLModel, table=True):
     __tablename__ = "scope"
 
